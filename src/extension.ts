@@ -4,14 +4,16 @@ const md = require('markdown-it')();
 const { am2tex } = require('asciimath-js');
 
 const asciimathName = 'asciimath';
-const amName = 'am';
 const errName = 'error';
+const configSection = 'markdown-asciimath';
+let config: vscode.WorkspaceConfiguration;
 
 const inlineFormula = (md: any) => {
+  const leftDelim = config.get('inlineDelimLeft');
   const codeInline = md.renderer.rules.code_inline;
   md.renderer.rules.code_inline = (tokens: any[], i: number, ...args: any[]) => {
     const token = tokens[i];
-    if (token.markup === '``') {
+    if (token.markup === leftDelim) {
       let tex;
       try {
         tex = am2tex(token.content, false);
@@ -26,42 +28,28 @@ const inlineFormula = (md: any) => {
 };
 
 const blockFormula = (md: any) => {
+  const blockLabel = config.get('blockLabel');
   const { fence } = md.renderer.rules;
   md.renderer.rules.fence = (tokens: any[], i: number, ...args: any[]) => {
     const token = tokens[i];
-    console.log(token);
-    if (token.info === 'am' || token.info === 'asciimath') {
+    if (token.info === blockLabel) {
       let tex;
       try {
         tex = am2tex(token.content);
-        return `<div class="${asciimathName}-block">${tex}</div>`;
+        return `<center class="${asciimathName}-block">${tex}</center>`;
       } catch (err: any) {
         console.error(err);
-        return `<div class="${errName}" style="color:#f00">[parse error: ${err.message}]</div>`;
+        return `<center class="${errName}" style="color:#f00">[parse error: ${err.message}]</center>`;
       }
     }
     return fence(tokens, i, ...args);
   };
 };
 
-const configSection = 'markdown-asciimath';
-const pluginKeyword = 'asciimath';
-const pluginKeywordReg = /\b(asciimath|am)\b/i;
-
-const preProcess = (source: string) => source.replace(/\</g, '&lt;').replace(/\>/g, '&gt;');
-
 // https://code.visualstudio.com/api/extension-guides/markdown-extension
 const extendMarkdownIt = (md: any) => {
   md.use(inlineFormula);
   md.use(blockFormula);
-
-  const highlight = md.options.highlight;
-  md.options.highlight = (code: string, lang: string) => {
-    if (pluginKeywordReg.test(lang)) {
-      return `<pre style="all:unset;"><div class="${pluginKeyword}">${preProcess(code)}</div></pre>`;
-    }
-    return highlight(code, lang);
-  };
   return md;
 };
 
@@ -71,6 +59,7 @@ export function activate(ctx: vscode.ExtensionContext) {
       vscode.commands.executeCommand('markdown.preview.refresh');
     }
   }));
+  config = vscode.workspace.getConfiguration(configSection);
   return { extendMarkdownIt };
 }
 
