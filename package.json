@@ -1,0 +1,58 @@
+{
+	"name": "vscode-markdown-asciimath",
+	"displayName": "Asciimath for Markdown Preview",
+	"description": "Asciimath extension for VSCode's built-in markdown preview",
+	"version": "0.0.1",
+	"repository": {
+		"url": "https://github.com/zmx0142857/vscode-markdown-asciimath"
+	},
+	"keywords": [
+		"asciimath",
+		"markdown",
+		"latex",
+		"preview"
+	],
+	"engines": {
+		"vscode": "^1.61.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"markdown.previewScripts": [
+			"./page.bundle.js"
+		],
+		"markdown.markdownItPlugins": true
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"build-page": "webpack --mode=production --config ./webpack.config.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.4",
+		"@types/markdown-it-container": "^2.0.5",
+		"@types/mocha": "^9.0.0",
+		"@types/node": "14.x",
+		"@types/vscode": "^1.61.0",
+		"@typescript-eslint/eslint-plugin": "^4.31.1",
+		"@typescript-eslint/parser": "^4.31.1",
+		"@vscode/test-electron": "^1.6.2",
+		"babel-loader": "^9.0.1",
+		"eslint": "^7.32.0",
+		"glob": "^7.1.7",
+		"katex": "^0.16.3",
+		"mocha": "^9.1.1",
+		"typescript": "^4.4.3",
+		"webpack": "^5.74.0",
+		"webpack-cli": "^4.10.0"
+	},
+	"dependencies": {
+		"asciimath-js": "^1.1.0",
+		"markdown-it": "^13.0.1"
+	}
+}
