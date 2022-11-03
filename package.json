@@ -3,6 +3,12 @@
 	"displayName": "Asciimath for Markdown Preview",
 	"description": "Asciimath extension for VSCode's built-in markdown preview",
 	"version": "0.0.1",
+	"license": "MIT",
+	"publisher": "zmx0142857",
+	"author": {
+		"name": "zmx0142857",
+		"email": "892298182@qq.com"
+	},
 	"repository": {
 		"url": "https://github.com/zmx0142857/vscode-markdown-asciimath"
 	},
@@ -17,6 +23,8 @@
 	},
 	"categories": [
 		"Other"
+	],
+	"activationEvents": [
 	],
 	"main": "./out/extension.js",
 	"contributes": {
