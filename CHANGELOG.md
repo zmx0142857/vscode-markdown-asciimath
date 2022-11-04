@@ -13,3 +13,8 @@ Initial release.
 - Centering block formula
 - Added extension settings
 - Added logo
+
+### 0.0.3
+
+- Change logo
+- Added example to README.md
