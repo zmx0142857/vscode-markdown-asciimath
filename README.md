@@ -31,10 +31,20 @@ Try this [live demo](https://asciimath.widcard.win) to explore more about asciim
 
 ## Settings
 
-- `markdown-asciimath.blockLabel`: Label name for block formula
-- `markdown-asciimath.inlineDelimLeft`: Left Delimiter for inline formula (Not supported yet)
-- `markdown-asciimath.inlineDelimRight`: Right Delimiter for inline formula (Not supported yet)
+- `markdown-asciimath.blockLabel`: Label name for block formula (default: `["asciimath", "am"]`)
+- `markdown-asciimath.inlineDelimLeft`: Left Delimiter for inline formula (default: \`\`)
+- `markdown-asciimath.inlineDelimRight`: Right Delimiter for inline formula (default: \`\`)
 
 ## Special Thanks
 
 Thanks to [@widcardw](https://github.com/widcardw)'s help and his well-crafted [markdown-it plugin](https://github.com/widcardw/markdown-it-asciimath).
+
+<!--
+## Publish
+
+```
+$ pnpm i -g @vscode/vsce
+$ vsce package
+$ vsce publish
+```
+-->
