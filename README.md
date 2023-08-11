@@ -4,8 +4,9 @@
 
 Add [asciimath](https://github.com/zmx0142857/asciimathml) support for VSCode's built-in markdown preview.
 
-- tutorial & reference: https://zmx0142857.github.io/note/#math
-- original homepage: http://asciimath.org/
+- tutorial & reference: https://asciimath.widcard.win
+- tutorial for old version (<= 0.0.3): https://zmx0142857.github.io/note/#math
+- original asciimath homepage: http://asciimath.org/
 
 ## Usage
 
@@ -26,10 +27,14 @@ Add [asciimath](https://github.com/zmx0142857/asciimathml) support for VSCode's 
 
 ![feature 01](./images/feature-01.png)
 
-Visit this [tutorial](https://zmx0142857.github.io/note/#math) to explore more about asciimath.
+Try this [live demo](https://asciimath.widcard.win) to explore more about asciimath.
 
 ## Settings
 
 - `markdown-asciimath.blockLabel`: Label name for block formula
 - `markdown-asciimath.inlineDelimLeft`: Left Delimiter for inline formula (Not supported yet)
 - `markdown-asciimath.inlineDelimRight`: Right Delimiter for inline formula (Not supported yet)
+
+## Special Thanks
+
+Thanks to [@widcardw](https://github.com/widcardw)'s help and his well-crafted [markdown-it plugin](https://github.com/widcardw/markdown-it-asciimath).

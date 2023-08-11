@@ -4,9 +4,15 @@ All notable changes to the "vscode-markdown-asciimath" extension will be documen
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-### 0.0.1
+### 0.1.0
 
-Initial release.
+- Changed asciimath implementation to [markdown-it-asciimath](https://github.com/widcardw/markdown-it-asciimath)
+- Changed settings, allowing multiple block labels & settings hot update
+
+### 0.0.3
+
+- Change logo
+- Added example to README.md
 
 ### 0.0.2
 
@@ -14,7 +20,6 @@ Initial release.
 - Added extension settings
 - Added logo
 
-### 0.0.3
+### 0.0.1
 
-- Change logo
-- Added example to README.md
+Initial release.
