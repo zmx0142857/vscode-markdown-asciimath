@@ -2,7 +2,7 @@
   "name": "vscode-markdown-asciimath",
   "displayName": "Asciimath for Markdown Preview",
   "description": "Asciimath extension for VSCode's built-in markdown preview",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "publisher": "zmx0142857",
   "author": {
@@ -59,6 +59,9 @@
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts"
   },
+  "dependencies": {
+    "@widcardw/markdown-it-asciimath": "^0.5.5"
+  },
   "devDependencies": {
     "@types/glob": "^7.1.4",
     "@types/markdown-it-container": "^2.0.5",
@@ -68,10 +71,8 @@
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.1",
     "@vscode/test-electron": "^1.6.2",
-    "@widcardw/markdown-it-asciimath": "^0.5.5",
     "eslint": "^7.32.0",
     "glob": "^7.1.7",
-    "katex": "^0.16.8",
     "mocha": "^9.1.1",
     "typescript": "^5.1.6"
   }
